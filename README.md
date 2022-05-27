@@ -17,18 +17,20 @@ development process and policies.
 
 * Build it using Dockerfile
 
-    ```ssh
-    $ git clone https://github.com/dixudx/trac-docker
-    $ cd trac-docker
-    $ docker build -t trac ./
-    ```
+```bash
+git clone https://github.com/silencej/trac-docker
+cd trac-docker
+
+docker build -t owen263/trac ./
+# Or if you are in China, use China mirrors:
+docker build -t owen263/trac --build-arg INCHINA=true .
+```
 
 * just pull it from Dockerhub
 
-    ```
-    $ docker pull stephenhsu/trac
-    ```
-
+```bash
+$ docker pull owen263/trac
+```
 
 # How to run the container
 
@@ -36,8 +38,8 @@ development process and policies.
 
 Just run
 
-```
-$ docker run -d -p 8123:8123 --name my_trac stephenhsu/trac
+``` bash
+docker run -d -p 8123:8123 --name my_trac stephenhsu/trac
 ```
 
 After several seconds, you can visit the web page at
@@ -97,7 +99,7 @@ You can make your own customizations (such as adding TLS etc.) in
 starting a container.
 
 ```
-$ docker run -d -p 8123:8123 -v ./trac.conf:/etc/apache2/sites-available/trac.conf --name my_trac stephenhsu/trac
+docker run -d -p 8123:8123 -v ./trac.conf:/etc/apache2/sites-available/trac.conf --name my_trac stephenhsu/trac
 ```
 
 # Reference
