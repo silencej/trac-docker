@@ -22,6 +22,10 @@ RUN apt-get update && apt-get install -y python2 python-pip apache2-utils
 RUN if [ "$INCHINA" = true ] ; then pip2 config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple ; fi
 
 RUN pip2 install --upgrade babel docutils pygments textile trac pytz TracAccountManager
+RUN pip2 install https://trac-hacks.org/browser/accountmanagerplugin/trunk?format=zip
 COPY docker-entrypoint.sh /
 RUN chmod a+x /docker-entrypoint.sh
 ENTRYPOINT /docker-entrypoint.sh
+# tracd --port 8123 -r --auth="*,$TRAC_DIR/users.htdigest,$TRAC_PROJECT_NAME" $TRAC_DIR
+# After setting up AccountManager, set it to the following:
+# ENTRYPOINT /docker-entrypoint.sh tracd --port 8123 -r $TRAC_DIR

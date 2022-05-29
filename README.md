@@ -1,3 +1,9 @@
+# About this repo
+
+There are many trac docker or AWS marketplace (turnkey trac), but none of them allow users to follow the Trac official document.
+
+This repo's spirit is: make a Docker for trac users to follow the official documents!
+
 # trac-docker
 
 [![](https://images.microbadger.com/badges/version/stephenhsu/trac.svg)](https://hub.docker.com/r/stephenhsu/trac/ "Get your own version badge on microbadger.com")
@@ -48,6 +54,11 @@ After several seconds, you can visit the web page at
 ## Environment Variables Explanations
 
 Most of below
+
+* `TRAC_AUTH` (default is ``):
+
+    After configuring Account Manager, add TRAC_ADMIN user, set this to `ACCTMNGR`, to use the Account Manager plugin as the LoginModule.
+
 
 * `TRAC_ADMIN_NAME` (default is `trac_admin`):
 
